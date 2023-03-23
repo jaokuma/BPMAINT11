@@ -1,21 +1,16 @@
-<mvc:View
-    controllerName="bpmaint11.controller.Object"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:semantic="sap.f.semantic"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:core="sap.ui.core">
+<core:FragmentDefinition
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:l="sap.ui.layout"
+		xmlns:u="sap.ui.unified"
+        xmlns:form="sap.ui.layout.form">
 
-    <semantic:SemanticPage
-        id="page"
-        headerPinnable="false"
-        toggleHeaderOnTitleClick="false"
-        busy="{objectView>/busy}"
-        busyIndicatorDelay="{objectView>/delay}"
-        showFooter="{objectView>/edit}">
-
-       <semantic:content>
-            <form:Form id="formBPDetail" width="100%" editable="{objectView>/edit}">
+    <Dialog class="sapUiResponsiveContentPadding"
+            title="{i18n>txtNewTitle}"
+            afterClose="onAfterCloseUploadDialog">
+        <content>
+            <form:Form id="formBPNew" width="100%" >
                 <form:title>
                     <core:Title text="{i18n>txtBPDetail}" level="Auto"/>
                 </form:title>
@@ -24,80 +19,70 @@
                 </form:layout>
                 <form:formContainers>
                     <form:FormContainer title="{i18n>txtCentralData}">
-                        <form:FormElement label="{i18n>txtPartnerId}">
-                            <form:fields> 
-                                <Label text="{PartnerId}" />
-                            </form:fields>
-                        </form:FormElement>
                         <form:FormElement label="{i18n>txtPartnerType}">
                             <form:fields> 
-                                <Input id="txtPartnerType" value="{PartnerType}" editable="{objectView>/edit}"/>
+                                <Input id="txtPartnerType" value="{worklistView>/New/PartnerType}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtPartnerName}">
                             <form:fields> 
-                                <Input id="txtPartnerName1" value="{PartnerName1}" editable="{objectView>/edit}"/> 
-                                <Input id="txtPartnerName2" value="{PartnerName2}" editable="{objectView>/edit}"/>
+                                <Input id="txtPartnerName1" value="{worklistView>/New/PartnerName1}" /> 
+                                <Input id="txtPartnerName2" value="{worklistView>/New/PartnerName2}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtSearchTerm}">
                             <form:fields> 
-                                <Input id="txtSearchTerm1" value="{SearchTerm1}" editable="{objectView>/edit}"/> 
-                                <Input id="txtSearchTerm2" value="{SearchTerm2}" editable="{objectView>/edit}"/>
+                                <Input id="txtSearchTerm1" value="{worklistView>/New/SearchTerm1}" /> 
+                                <Input id="txtSearchTerm2" value="{worklistView>/New/SearchTerm2}" />
                             </form:fields>
                         </form:FormElement>
                     </form:FormContainer>
                     <form:FormContainer title="{i18n>txtAddressData}">
                         <form:FormElement label="{i18n>txtStreet}">
                             <form:fields> 
-                                <Input id="txtStreet" value="{Street}" editable="{objectView>/edit}"/>
+                                <Input id="txtStreet" value="{worklistView>/New/Street}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtHouseNumber}">
                             <form:fields> 
-                                <Input id="txtHouseNumber" value="{HouseNumber}" editable="{objectView>/edit}"/>
+                                <Input id="txtHouseNumber" value="{worklistView>/New/HouseNumber}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtDistrict}">
                             <form:fields> 
-                                <Input id="txtDistrict" value="{District}" editable="{objectView>/edit}"/>
+                                <Input id="txtDistrict" value="{worklistView>/New/District}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtCity}">
                             <form:fields> 
-                                <Input id="txtCity" value="{City}" editable="{objectView>/edit}"/>
+                                <Input id="txtCity" value="{worklistView>/New/City}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtRegion}">
                             <form:fields> 
-                                <Input id="txtRegion" value="{Region}" editable="{objectView>/edit}"/>
+                                <Input id="txtRegion" value="{worklistView>/New/Region}" maxLength="3" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtZipCode}">
                             <form:fields> 
-                                <Input id="txtZipCode" value="{ZipCode}" editable="{objectView>/edit}"/>
+                                <Input id="txtZipCode" value="{worklistView>/New/ZipCode}" />
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtCountry}">
                             <form:fields> 
-                                <Input id="txtCountry" value="{Country}" editable="{objectView>/edit}"/>
+                                <Input id="txtCountry" value="{worklistView>/New/Country}" maxLength="3" />
                             </form:fields>
                         </form:FormElement>
                     </form:FormContainer>
                 </form:formContainers>
             </form:Form>
-		</semantic:content>
+        </content>
+        <beginButton>
+            <Button text="{i18n>btnSave}" press="onSavePress" />
+        </beginButton>
+		<endButton>
+			<Button text="{i18n>btnClose}" press="onClose" />
+		</endButton>
 
-        <semantic:titleMainAction>
-			<semantic:TitleMainAction text="{i18n>btnEdit}" press="onEditPress" />
-		</semantic:titleMainAction>
-
-        <!-- Custom Footer Content-->
-		<semantic:footerCustomActions>
-			<Button text="{i18n>btnSave}" press="onSavePress" />
-			<Button text="{i18n>btnCancel}" press="onCancelPress" />
-		</semantic:footerCustomActions>
-
-    </semantic:SemanticPage>
-
-</mvc:View>
+    </Dialog>
+</core:FragmentDefinition>
