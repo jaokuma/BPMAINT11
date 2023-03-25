@@ -31,7 +31,12 @@
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtPartnerType}">
                             <form:fields> 
-                                <Input id="txtPartnerType" value="{PartnerType}" editable="{objectView>/edit}"/>
+
+                                <!--Janete combo Tipo Parceiro-->
+
+                                <!--Input id="txtPartnerType" value="{PartnerType}" editable="{objectView>/edit}"/-->
+                                <ComboBox id="cbTipo" enabled="{objectView>/edit}" selectedKey="{PartnerType}" />
+                            
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtPartnerName}">
@@ -75,7 +80,12 @@
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtZipCode}">
                             <form:fields> 
+                             
+                                <!--Janete máscara cep-->
                                 <Input id="txtZipCode" value="{ZipCode}" editable="{objectView>/edit}"/>
+                                <!--MaskInput id="txtZipCode" value="{ZipCode}" mask="99999-999" placeholderSymbol="_" editable="{objectView>/edit}" /-->
+
+
                             </form:fields>
                         </form:FormElement>
                         <form:FormElement label="{i18n>txtCountry}">
